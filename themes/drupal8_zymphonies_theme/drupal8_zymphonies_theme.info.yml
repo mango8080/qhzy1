@@ -1,0 +1,38 @@
+name: Drupal8 Zymphonies Theme
+type: theme
+description: 'Zymphonies Drupal 8 Responsive Theme. Developed & Designed by <a href=http://www.zymphonies.com>Zymphonies</a><br/>Contact us for Drupal Design & Development <a href=mailto:info@zymphonies.com>info@zymphonies.com</a>'
+package: core
+# core: 8.x
+
+#Libraries
+libraries:
+  - drupal8_zymphonies_theme/bootstrap
+  - drupal8_zymphonies_theme/global-components
+
+
+#Regions
+regions:
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  navigation_menu: 'navigation_menu'
+  welcome_banner_text: 'Welcome Banner Text'
+  succeed: 'Succeed'
+  cooperation: 'cooperation'
+  breadcrumb: 'Breadcrumb'
+  content_top: 'content top'
+  content: 'Content'
+  content_bottom: 'content_bottom '
+  bottom: 'bottom'
+  triumph: 'triumph'
+  agreement: 'agreement'
+  social_ads: 'tencent social ads'
+  headline_title: 'headline_title'
+  sine_title: ' sine_title'
+  momo: 'momo'
+  qiy: 'qiy' 
+  youku: 'youku'
+# Information added by Drupal.org packaging script on 2016-01-08
+version: '8.x-1.0'
+core: '8.x'
+project: 'drupal8_zymphonies_theme'
+datestamp: 1452278346
