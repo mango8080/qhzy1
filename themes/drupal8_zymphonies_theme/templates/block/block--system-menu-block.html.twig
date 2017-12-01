@@ -32,7 +32,7 @@
  */
 #}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-<nav role="navigation navbar-right nav-meiu" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
+{#<nav role="navigation navbar-right nav-meiu" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>#}
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
@@ -45,5 +45,5 @@
   {% block content %}
     {{ content }}
   {% endblock %}
-  <div class="clearfix"></div>
-</nav>
+{#  <div class="clearfix"></div>
+</nav>#}

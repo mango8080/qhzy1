@@ -31,6 +31,7 @@ regions:
   momo: 'momo'
   qiy: 'qiy' 
   youku: 'youku'
+  wx_bottom: 'wx bottom' 
 # Information added by Drupal.org packaging script on 2016-01-08
 version: '8.x-1.0'
 core: '8.x'

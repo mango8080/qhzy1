@@ -61,33 +61,32 @@
 
 <!-- Header and Navbar -->
 <header class="main-header">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="row">
-      <div class="navbar-header col-md-3">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        {% if page.header %}
-          {{ page.header }}
-        {% endif %}
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#responsive-navbar">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {% if page.header %}
+              {{ page.header }}
+            {% endif %}
+            </div>
+            <div class="collapse navbar-collapse" id="responsive-navbar">
+              <div class="col-md-8 col-sm-6">
+                {% if page.primary_menu %}
+                  {{ page.primary_menu }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
       </div>
-      <!-- Navigation -->
-      <div class="col-md-9">
-        {% if page.primary_menu %}
-          {{ page.primary_menu }}
-        {% endif %}     
-      </div>
-      <!--End Navigation -->
-      </div>
-    </div>
   </nav>
 </header>
 <!--End Header & Navbar -->
- 
+
 <div class="show_banner">
    {% if is_front and page.welcome_banner_text %}
     <div class="show_banner_centos">
@@ -104,18 +103,22 @@
         </div>
       </div>
       <script type="text/javascript">
-         var headernav=$(".show_banner_nav .navbar");
+      // 导航定位到顶部
+         var headernav=$(".show_banner_centos .show_banner_nav");
          $(document).scroll(function() {
             var dix=$(document).scrollTop();
             if(dix>51){
-              $(headernav).addClass('header-nav')
+              $(headernav).removeClass('show_banner_nav');
+              $(headernav).addClass('show_banner_nav_1');
+
             }else{
-              $(headernav).removeClass('header-nav')
+              $(headernav).removeClass('show_banner_nav_1');
+              $(headernav).addClass('show_banner_nav');
             }
 
             console.log(dix);
           });
-      </script>  
+      </script>
   {% else %}
     <div class="show_banner_centos">
       <div class="container">
@@ -126,11 +129,11 @@
               {% endif %}
             </div>
         </nav>
-      </div>  
+      </div>
   {% endif %}
-   
+
   <!-- Banner -->
-      {% if is_front and page.welcome_banner_text %}  
+      {% if is_front and page.welcome_banner_text %}
       <div class="welcome-banner-text">
             {{ page.welcome_banner_text }}
       </div>
@@ -168,18 +171,18 @@
         <div class="showcase-wrap-cn">
           <h3>精准可靠</h3>
           <p>全国门户新闻媒体</p>
-        </div>  
+        </div>
       </a>
     </div>
     <div class="col-xs-6 col-sm-3 col-md-3 row-text-describe row-list-four">
-      <a href="#">
+      <a href="/serve">
         <span class=" fa fa-object-group fa-3x"></span>
         <div class="showcase-wrap-cn">
-          <h3>设计领域</h3>
-          <p>设计运营</p>
-        </div>  
+          <h3>服务流程</h3>
+          <p>媒体合作流程</p>
+        </div>
       </a>
-    </div> 
+    </div>
     <div class="clearfix"></div>
   </div>
 </div>
@@ -248,36 +251,36 @@
           </div>
           <div class="product-products-center">
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
-              <a href="/media/qq_space_app" title="">
+              <a href="/media/tencent/qzone-pc" title="">
                 <div class="product-next-text">
                 <h5>QQ空间广告</h5>
-                <spna>非常适合品牌在社交场景与年轻人</spna>
+                <span>非常适合品牌在社交场景与年轻人</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
-              <a href="#" title="">
+              <a href="/media/tencent/qq" title="">
                 <div class="product-next-text">
                 <h5>QQ客服端</h5>
-                <spna>打造上亿用户企业号、个人号</spna>
+                <span>打造上亿用户企业号、个人号</span>
                 </div>
               </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
-              <a href="#" title="">
+              <a href="/media/tencent/wx" title="">
                 <div class="product-next-text">
                 <h5>微信广告</h5>
-                <spna>朋友圈广告、微信公众号广告</spna>
+                <span>朋友圈广告、微信公众号广告</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
-              <a href="#" title="">
+              <a href="/media/momo" title="">
                 <div class="product-next-text">
                 <h5>陌陌广告</h5>
-                <spna>聚合优质的app</spna>
+                <span>聚合优质的app</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -286,7 +289,7 @@
               <a href="#" title="">
                 <div class="product-next-text">
                 <h5>兴趣部落</h5>
-                <spna>百万优质广告</spna>
+                <span>百万优质广告</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -295,16 +298,16 @@
               <a href="#" title="">
                 <div class="product-next-text">
                 <h5>百度贴吧</h5>
-                <spna>帝吧</spna>
+                <span>帝吧</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
-              <a href="#" title="">
+              <a href="/media/sine" title="">
                 <div class="product-next-text">
                 <h5>微博广告</h5>
-                <spna>聚合优质的大v</spna>
+                <span>聚合优质的大v</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -320,7 +323,7 @@
               <a href="#" title="">
                 <div class="product-next-text">
                 <h5>百度贴吧</h5>
-                <spna>吧主十日搞定</spna>
+                <span>吧主十日搞定</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -329,15 +332,15 @@
               <a href="#" title="">
                 <div class="product-next-text">
                 <h5>兴趣部落</h5>
-                <spna>打造上亿用户企业号、个人号</spna>
+                <span>打造上亿用户企业号、个人号</span>
                 </div>
               </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
               <a href="#" title="">
                 <div class="product-next-text">
-                <h5>QQ群运营</h5>
-                <spna>QQ群排名，活动度， QQ群运营</spna>
+                <h5>知乎论坛</h5>
+                <span>问答，总有你的答案</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -345,8 +348,8 @@
             <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
               <a href="#" title="">
                 <div class="product-next-text">
-                <h5>百度知乎</h5>
-                <spna>芝士就是力量</spna>
+                <h5>新浪论坛</h5>
+                <span>新浪论坛社区是互联网最具知名度的综合性BBS</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -355,7 +358,7 @@
               <a href="#" title="">
                 <div class="product-next-text">
                 <h5>天涯论坛</h5>
-                <spna>打造上亿用户企业号、个人号</spna>
+                <span>打造上亿用户企业号、个人号</span>
                 </div>
               </a>
               <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -364,7 +367,71 @@
               <a href="#" title="">
                 <div class="product-next-text">
                 <h5>豆瓣</h5>
-                <spna>打造上亿用户企业号、个人号</spna>
+                <span>打造上亿用户企业号、个人号</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>长沙通论坛 - 长沙论坛</h5>
+                <span>长沙通网站是立足长沙本土的生活消费类网络社区</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>天涯社区</h5>
+                <span>天府社区是四川日报报业集团全媒体中心旗下重点打造的城市生活社区网站</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>55bbs</h5>
+                <span>天府社区是四川日报报业集团全媒体中心旗下重点打造的城市生活社区网站</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>楚汉网</h5>
+                <span>楚汉网是湖北武汉新闻生活综合门户,即武汉生活论坛</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>西祠胡同</h5>
+                <span>是国内首创的网友“自行开版、自行管理、自行发展”的开放式社区平台</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>蓝色河畔</h5>
+                <span>粤东地区最具人气、网络用户量最多、覆盖面最广、高影响力的时尚网络平台</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>华商论坛</h5>
+                <span>陕西西安本地新闻、爆料、乱拍、旅游、汽车、美食、球迷网上交流互动社区论坛</span>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+              <a href="#" title="">
+                <div class="product-next-text">
+                <h5>驻马店论坛</h5>
+                <span>河南驻马店本地最具人气的交流社区</span>
                 </div>
               </a>
             </div>
@@ -378,8 +445,8 @@
               <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
                 <a href="#" title="">
                   <div class="product-next-text">
-                  <h5>江南都市报</h5>
-                  <spna>新闻爆料</spna>
+                  <h5>今天头条</h5>
+                  <span>你关系的才是头条</span>
                   </div>
                 </a>
                 <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -387,8 +454,135 @@
               <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
                 <a href="#" title="">
                   <div class="product-next-text">
-                  <h5>杂志</h5>
-                  <spna>打造上亿用户企业号、个人号</spna>
+                  <h5>一点资讯</h5>
+                  <span>高度智能的新闻资讯</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>百家号</h5>
+                  <span>帮助内容创作者“在这里影响世界”。 </span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>企鹅号</h5>
+                  <span>腾讯旗下的一款自媒体发布平台</span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>网易自媒体</h5>
+                  <span>直达亿万读者，共享网易品牌影响力</span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>喜马拉雅 FM</h5>
+                  <span>规模最大的在线移动音频分享平台</span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>知乎</h5>
+                  <span>一个真实的网络问答社区,寻找答案,分享知</span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>凤凰自媒体</h5>
+                  <span>集中在国内的优质大学</span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>UC自媒体平台</h5>
+                  <span>内容最早是来源于一些大的媒体平台</span>
+                  </div>
+                </a>
+                <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>A5站长网</h5>
+                  <span>内容最早是来源于一些大的媒体平台</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>卢松松博客</h5>
+                  <span>知名博客，不多说，流量杠杠滴！</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>思达派</h5>
+                  <span>专注创业服务市场的新媒体平台,定位“创业干货分享”</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>简书</h5>
+                  <span>书写、编集、发布功能于一体的在线写作编辑工具</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>钛媒体</h5>
+                  <span>国内首家TMT公司人社群媒体,钛度的一人一媒体平台</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>虎嗅网</h5>
+                  <span>关注对象是包括公众公司与创业型业在内的一系列明星公司</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>砍柴网</h5>
+                  <span>一个专注科技观的科技媒体</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-4 col-xs-6 pr operating-platform-text">
+                <a href="#" title="">
+                  <div class="product-next-text">
+                  <h5>砍柴网</h5>
+                  <span>一个专注科技观的科技媒体</span>
                   </div>
                 </a>
               </div>
@@ -403,7 +597,7 @@
                 <a href="#" title="">
                   <div class="product-next-text">
                   <h5>江南都市报</h5>
-                  <spna>新闻爆料</spna>
+                  <span>新闻爆料</span>
                   </div>
                 </a>
                 <i class="operating-platform-hot pa"><img src="/themes/drupal8_zymphonies_theme/images/hot.png" alt=""></i>
@@ -412,16 +606,18 @@
                 <a href="#" title="">
                   <div class="product-next-text">
                   <h5>杂志</h5>
-                  <spna>打造上亿用户企业号、个人号</spna>
+                  <span>打造上亿用户企业号、个人号</span>
                   </div>
                 </a>
               </div>
           </div>
         </div>
     </div>
-   </div> 
+    <div class="clearfix"></div>
+   </div>
   </div>
 <script type="text/javascript">
+// 选卡
   var option= document.getElementsByClassName('product-option');
       // 获取盒子
       var showcase= document.getElementsByClassName('operating-platform');
@@ -429,20 +625,20 @@
       var sanjiaodom=$(".san-icon");
 
       showcase[0].style.display = "block";
-      sanjiaodom[0].style.display="block";  
+      sanjiaodom[0].style.display="block";
       for (var i = 0; i < option.length; i++) {
         option[i].index=i;
-        option[i].onclick = function(){  
+        option[i].onclick = function(){
                 show(this.index);
-            }  
+            }
       }
-      function show(a){  
-        for(var j=0;j<showcase.length;j++){  
+      function show(a){
+        for(var j=0;j<showcase.length;j++){
                 showcase[j].style.display= "none";
-                sanjiaodom[j].style.display="none"                     
+                sanjiaodom[j].style.display="none"
             }
             showcase[a].style.display = "block";
-            sanjiaodom[a].style.display="block"; 
+            sanjiaodom[a].style.display="block";
         }
 
 
@@ -492,7 +688,7 @@
       </div>
     </div>
   </div>
-  {% endif %}    
+  {% endif %}
 <!-- End  source-->
 <!-- 优势 -->
 {% if is_front %}
@@ -518,7 +714,7 @@
             <img src='/themes/drupal8_zymphonies_theme/images/meit.png' alt="">
             <h3 class="mt20">直线发稿</h3>
             <p class="mt20">千家媒体直线发稿</p>
-            <p class="mt10">星空媒体拥有最全、最快的软文发布渠道用户提交需求后，当天即可发布！一步到位，为您个人和公司节约了大量的时间和金钱！</p>
+            <p class="mt10">乾厚佐佑拥有最全、最快的软文发布渠道用户提交需求后，当天即可发布！一步到位，为您个人和公司节约了大量的时间和金钱！</p>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 ">
@@ -526,7 +722,7 @@
             <img src='/themes/drupal8_zymphonies_theme/images/fagao.png' alt="">
             <h3 class="mt20">最全媒体资源</h3>
             <p class="mt20">3万多家媒体资源</p>
-            <p class="mt10">星空媒体提供上万个媒体的海量、精准数据，涵盖网络媒体、微信微博、视频、报纸杂志、贴吧论坛、问答百科等类型，是中国最大的媒体资源数据库。</p>
+            <p class="mt10">乾厚佐佑媒体提供上万个媒体的海量、精准数据，涵盖网络媒体、微信微博、视频、报纸杂志、贴吧论坛、问答百科等类型，是中国最大的媒体资源数据库。</p>
           </div>
         </div>
         <div class="clearfix"></div>
@@ -542,12 +738,12 @@
     </div>
     <div class="succeed-rt">
      <div>{{ field_log_img }}</div>
-     <div>  
+     <div>
         <h2>{{ title }}</h2>
         <p>{{ field_text }}</p>
      </div>
     </div>
-</div>  
+</div>
 
 
 
@@ -639,7 +835,7 @@
       <!-- 新浪广告 头部 -->
       {% if page.sine_title %}
         <div class="sine">
-          {{ page.sine_title }} 
+          {{ page.sine_title }}
         </div>
       {% endif %}
       <!-- 陌陌头部 -->
@@ -662,12 +858,16 @@
       <!-- conter -->
       {% if page.content %}
         <div class="layout">
-            <div class="content_layout "> 
+            <div class="content_layout">
                 {{ page.content }}
-            </div>      
+            </div>
         </div>
       {% endif %}
 
+      {% if page.wx_bottom %}
+        <!-- 微信 -->
+        {{ page.wx_bottom }}
+      {% endif %}
       {% if page.triumph %}
         <div class="triumph">
             <div class="container">
@@ -683,7 +883,7 @@
         </div>
       {% endif %}
       <!--End Content Bottom-->
-  </div>  
+  </div>
   <!-- End layout -->
 {% endif %}
 
@@ -765,15 +965,12 @@
     </div>
   </div>
   <!-- bottom -->
-  
+
   <!-- footer  start-->
   <footer id="footer">
     <div class="container">
       <div class="footer-center">
-        <p>© 2009-2017 Aliyun.com 版权所有 ICP证：浙B2-20080101</p>  
+        <p>© 2009-2017 Aliyun.com 版权所有 ICP证：浙B2-20080101</p>
       </div>
     </div>
   </footer>
-
-
-

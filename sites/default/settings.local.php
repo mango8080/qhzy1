@@ -49,8 +49,8 @@ $config['system.logging']['error_level'] = 'verbose';
 /**
  * Disable CSS and JS aggregation.
  */
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
+$config['system.performance']['css']['preprocess'] = True;
+$config['system.performance']['js']['preprocess'] = True;
 
 /**
  * Disable the render cache (this includes the page cache).

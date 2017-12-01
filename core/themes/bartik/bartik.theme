@@ -123,3 +123,4 @@ function bartik_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form[$key]['submit']['#attributes']->addClass('search-form__submit');
   }
 }
+
